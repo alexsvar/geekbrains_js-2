@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Remove</title>
+	<script>
+		window.addEventListener('load', function() {
+			var menuItem1 = new MenuItem('/', 'Главная');
+			var menuItem2 = new MenuItem('/about/', 'О нас');
+			var menuItem3 = new MenuItem('/catalog/', 'Каталог');
+
+			var menu = new Menu('menu', 'menu', [
+				menuItem1, menuItem2, menuItem3
+			]);
+
+
+			document.body.appendChild(menu.render());
+		});
+	</script>
+</head>
+<body>
+<script>
+	function Container() {
+		this.id = 'container';
+		this.className = 'container';
+	}
+
+	Container.prototype.render = function() {
+		var div = document.createElement('div');
+		div.id = this.id;
+		div.className = this.className;
+
+		return div;
+	};
+
+	// Метод .remove();
+	Container.prototype.remove = function() {
+		var menu = document.querySelector('#menu');
+		document.body.removeChild(menu);
+	};
+
+	// Меню
+	function Menu(id, className, items) {
+		Container.call(this);
+		this.id = id;
+		this.className = className;
+		this.items = items;
+	}
+
+	Menu.prototype = Object.create(Container.prototype);
+	// Menu.prototype.constructor = Menu;
+	Menu.prototype.render = function() {
+		var ul = document.createElement('ul');
+		ul.id = this.id;
+		ul.className = this.className;
+
+		for (var i = 0; i < this.items.length; i++) {
+			if (this.items[i] instanceof MenuItem) {
+				ul.appendChild(this.items[i].render());
+			}
+		}
+		return ul;
+
+	};
+
+	// Пункт Меню
+	function MenuItem(link, label) {
+		Container.call(this);
+		this.link = link;
+		this.label = label;
+	}
+
+	MenuItem.prototype = Object.create(Container.prototype);
+	// MenuItem.prototype.constructor = MenuItem;
+	MenuItem.prototype.render = function() {
+		var li = document.createElement('li');
+		var a = document.createElement('a');
+		a.href = this.link;
+		a.textContent = this.label;
+		li.appendChild(a);
+
+		return li;
+	};
+
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>subMenu</title>
+	<script>
+		window.addEventListener('load', function() {
+
+			var menu = new Menu('menu', 'menu', [
+				new MenuItem('/', 'Главная'),
+				new SubMenu('/about/', 'О нас', [
+					new MenuItem('/about/history', 'Наша история'),
+					new MenuItem('/about/contacts', 'Контакты'),
+					new SubMenu('/about/news', 'Новости', [
+						new MenuItem('/about/news/news2018', 'Новости 2018'),
+						new MenuItem('/about/news/news2017', 'Новости 2017')
+					])
+				]),
+				new MenuItem('/contacts/', 'Контакты')
+			]);
+
+			document.body.appendChild(menu.render());
+
+		});
+	</script>
+</head>
+<body>
+<script>
+	function Container() {
+		this.id = 'container';
+		this.className = 'container';
+	}
+
+	Container.prototype.render = function() {
+		var div = document.createElement('div');
+		div.id = this.id;
+		div.className = this.className;
+
+		return div;
+	};
+
+	// Метод .remove();
+	Container.prototype.remove = function() {
+		var menu = document.querySelector('#menu');
+		document.body.removeChild(menu);
+	};
+
+	// Меню
+	function Menu(id, className, items) {
+		Container.call(this);
+		this.id = id;
+		this.className = className;
+		this.items = items;
+	}
+
+	Menu.prototype = Object.create(Container.prototype);
+	// Menu.prototype.constructor = Menu;
+	Menu.prototype.render = function() {
+		var ul = document.createElement('ul');
+		ul.id = this.id;
+		ul.className = this.className;
+
+		for (var i = 0; i < this.items.length; i++) {
+			if (this.items[i] instanceof MenuItem || this.items[i] instanceof SubMenu) {
+				ul.appendChild(this.items[i].render());
+			}
+		}
+		return ul;
+
+	};
+
+	// Пункт Меню
+	function MenuItem(link, label) {
+		Container.call(this);
+		this.link = link;
+		this.label = label;
+	}
+
+	MenuItem.prototype = Object.create(Container.prototype);
+	// MenuItem.prototype.constructor = MenuItem;
+	MenuItem.prototype.render = function() {
+		var li = document.createElement('li');
+		var a = document.createElement('a');
+		a.href = this.link;
+		a.textContent = this.label;
+		li.appendChild(a);
+
+		return li;
+	};
+
+	// Подменю
+	function SubMenu(link, label, subMenu) {
+		Menu.call(this);
+
+		this.link = link;
+		this.label = label;
+		this.subMenu = subMenu;
+	}
+
+	SubMenu.prototype = Object.create(Menu.prototype);
+	// SubMenu.prototype.constructor = SubMenu;
+	SubMenu.prototype.render = function() {
+		var li = document.createElement('li');
+		var a = document.createElement('a');
+		var ul = document.createElement('ul');
+		li.appendChild(a);
+		li.appendChild(ul);
+		a.href = this.link;
+		a.textContent = this.label;
+
+		// if (!Array.isArray(this.subMenu) || this.subMenu.length === 0) return;
+		for (var i = 0; i < this.subMenu.length; i++) {
+			ul.appendChild(this.subMenu[i].render());
+		}
+
+		return li;
+	};
+
+
+</script>
+</body>
+</html>
