@@ -108,7 +108,6 @@
 		a.href = this.link;
 		a.textContent = this.label;
 
-		// if (!Array.isArray(this.subMenu) || this.subMenu.length === 0) return;
 		for (var i = 0; i < this.subMenu.length; i++) {
 			ul.appendChild(this.subMenu[i].render());
 		}
