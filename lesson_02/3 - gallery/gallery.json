@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"srcSmall": "./img/01-small.jpg",
+		"srcBig": "./img/01-big.jpg",
+		"title": "Photo-1"
+	},
+	{
+		"id": 2,
+		"srcSmall": "./img/02-small.jpg",
+		"srcBig": "./img/02-big.jpg",
+		"title": "Photo-2"
+	},
+	{
+		"id": 3,
+		"srcSmall": "./img/03-small.jpg",
+		"srcBig": "./img/03-big.jpg",
+		"title": "Photo-3"
+	},
+	{
+		"id": 4,
+		"srcSmall": "./img/04-small.jpg",
+		"srcBig": "./img/04-big.jpg",
+		"title": "Photo-4"
+	},
+	{
+		"id": 5,
+		"srcSmall": "./img/05-small.jpg",
+		"srcBig": "./img/05-big.jpg",
+		"title": "Photo-5"
+	},
+	{
+		"id": 6,
+		"srcSmall": "./img/06-small.jpg",
+		"srcBig": "./img/06-big.jpg",
+		"title": "Photo-6"
+	}
+]

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Gallery</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+	/**
+	 * Class Gallery
+	 * @param items
+	 * @constructor
+	 */
+	function Gallery(items) {
+		this.items = items;
+	}
+
+	/**
+	 * Method render
+	 * @returns {HTMLDivElement}
+	 */
+	Gallery.prototype.render = function() {
+		var gallery = document.createElement('div');
+		var gallerySmall = document.createElement('div');
+		var galleryShow = document.createElement('div');
+		var imageBig = document.createElement('img');
+
+		gallery.id = 'gallery';
+		galleryShow.id = 'gallery-big';
+		gallerySmall.id = 'gallery-small';
+
+		gallery.appendChild(gallerySmall);
+		gallery.appendChild(galleryShow);
+		galleryShow.appendChild(imageBig);
+
+		for (var i = 0; i < this.items.length; i++) {
+			var image = document.createElement('img');
+			image.id = this.items[i].id;
+			image.src = this.items[i].srcSmall;
+			image.alt = this.items[i].title;
+			gallerySmall.appendChild(image);
+		}
+
+		return gallery;
+	};
+
+	/**
+	 * Method showBigImage
+	 * @param galleryShow
+	 * @param idImg
+	 */
+	Gallery.prototype.showBigImage = function(galleryShow, idImg) {
+		idImg = idImg || 0;
+
+		var item = this.items[idImg];
+		var galleryBig = document.querySelector('#gallery-big');
+		var imageBig = galleryBig.querySelector('img');
+		imageBig.src = item.srcBig;
+		imageBig.alt = item.title;
+		galleryBig.appendChild(imageBig);
+	};
+
+	window.addEventListener('load', function() {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', './gallery.json', true);
+		xhr.send();
+
+		xhr.addEventListener('readystatechange', function() {
+			if (xhr.readyState !== XMLHttpRequest.DONE) return false;
+			if (xhr.status === 200) {
+				var arrayJsonParse = JSON.parse(xhr.responseText);
+				var arrayItems = [];
+
+				for (var i = 0; i < arrayJsonParse.length; i++) {
+					arrayItems.push(arrayJsonParse[i]);
+				}
+
+				var gallery = new Gallery(arrayItems);
+				arrayItems = null;
+
+				document.body.appendChild(gallery.render());
+
+				var gallerySmall = document.querySelectorAll('#gallery-small img');
+				var galleryShow = document.querySelector('#gallery-big');
+
+				gallery.showBigImage(galleryShow);
+
+				for (var j = 0; j < gallerySmall.length; j++) {
+					gallerySmall[j].addEventListener('click', function(event) {
+						gallery.showBigImage(galleryShow, event.target.id - 1);
+					});
+				}
+			}
+			else {
+				xhr.addEventListener('error', function() {
+					console.error('Error: ' + xhr.status + ': ' + xhr.statusText);
+				});
+			}
+		});
+	});
+</script>
+</body>
+</html>
