@@ -1,0 +1,56 @@
+[
+	{
+		"link": "/",
+		"label": "Главная"
+	},
+	{
+		"link": "/catalog/",
+		"label": "Каталог",
+		"subMenu": [
+			{
+				"link": "/catalog/product1",
+				"label": "Продукт 1"
+			},
+			{
+				"link": "/catalog/product2",
+				"label": "Продукт 2"
+			},
+			{
+				"link": "/catalog/product3",
+				"label": "Продукт 3"
+			}
+		]
+	},
+	{
+		"link": "/promotions",
+		"label": "Промоакции",
+		"subMenu": [
+			{
+				"link": "/promotions/promotion1",
+				"label": "Промоакция 1"
+			},
+			{
+				"link": "/promotions/promotion2",
+				"label": "Промоакция 2"
+			},
+			{
+				"link": "/promotions/promotion3",
+				"label": "Промоакция 3"
+			}
+		]
+	},
+	{
+		"link": "/account/",
+		"label": "Аккаунт",
+		"subMenu": [
+			{
+				"link": "/account/login",
+				"label": "Войти"
+			},
+			{
+				"link": "/account/register",
+				"label": "Зарегистрироваться"
+			}
+		]
+	}
+]
