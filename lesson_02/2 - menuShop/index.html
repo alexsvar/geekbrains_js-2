@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Меню</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="menu.js"></script>
+</head>
+<body>
+<header class="page-header">
+	<nav class="page-header__navigation"></nav>
+</header>
+
+	<script>
+		window.addEventListener('load', function() {
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'menu.json', true);
+			xhr.send();
+
+			xhr.addEventListener('readystatechange', function() {
+				if (xhr.readyState !== XMLHttpRequest.DONE) return false;
+				if (xhr.status === 200) {
+					var jsonParseMenu = JSON.parse(xhr.response);
+					var menuArray = [];
+
+					var createSubMenuArray = function(arr) {
+						var subMenuArray = [];
+						for (var i = 0; i < arr.length; i++) {
+							if (arr[i].subMenu === undefined) {
+								subMenuArray.push(new MenuItem(
+									arr[i].link,
+									arr[i].label,
+									arr[i].className
+								));
+							}
+							else {
+								subMenuArray.push(new SubMenu(
+									arr[i].link,
+									arr[i].label,
+									arr[i].className,
+									createSubMenuArray(arr[i].subMenu)
+								));
+							}
+						}
+
+						return subMenuArray;
+					};
+
+					for (var i = 0; i < jsonParseMenu.length; i++) {
+						if (jsonParseMenu[i].subMenu === undefined) {
+							menuArray.push(new MenuItem(
+								jsonParseMenu[i].link,
+								jsonParseMenu[i].label,
+								jsonParseMenu[i].className
+							));
+						}
+						else {
+							var subMenuArray = createSubMenuArray(jsonParseMenu[i].subMenu);
+							menuArray.push(new SubMenu(
+								jsonParseMenu[i].link,
+								jsonParseMenu[i].label,
+								jsonParseMenu[i].linkClassName,
+								jsonParseMenu[i].className,
+								subMenuArray
+							));
+						}
+					}
+
+					var menu = new Menu('menu', 'menu', menuArray);
+					var nav = document.querySelector('.page-header__navigation');
+					nav.appendChild(menu.render());
+				}
+				else {
+					xhr.addEventListener('error', function() {
+						console.error('Error: ' + xhr.status + ' - ' + xhr.statusText);
+					});
+				}
+			});
+		});
+	</script>
+</body>
+</html>

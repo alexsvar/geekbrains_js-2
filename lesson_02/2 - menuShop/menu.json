@@ -1,0 +1,71 @@
+[
+	{
+		"link": "/",
+		"label": "Main",
+		"className": "menu__item"
+	},
+	{
+		"link": "/catalog/",
+		"label": "Catalog",
+		"linkClassName": "menu__item",
+		"className": "menu__submenu",
+		"subMenu": [
+			{
+				"link": "/catalog/product1",
+				"label": "Product 1",
+				"className": "menu__submenu-item"
+			},
+			{
+				"link": "/catalog/product2",
+				"label": "Product 2",
+				"className": "menu__submenu-item"
+			},
+			{
+				"link": "/catalog/product3",
+				"label": "Product 3",
+				"className": "menu__submenu-item"
+			}
+		]
+	},
+	{
+		"link": "/promotions",
+		"label": "Promotions",
+		"linkClassName": "menu__item",
+		"className": "menu__submenu",
+		"subMenu": [
+			{
+				"link": "/promotions/promotion1",
+				"label": "Promotion 1",
+				"className": "menu__submenu-item"
+			},
+			{
+				"link": "/promotions/promotion2",
+				"label": "Promotion 2",
+				"className": "menu__submenu-item"
+			},
+			{
+				"link": "/promotions/promotion3",
+				"label": "Promotion 3",
+				"className": "menu__submenu-item"
+			}
+		]
+	},
+	{
+		"link": "/account/",
+		"label": "Account",
+		"linkClassName": "menu__item",
+		"className": "menu__submenu",
+		"subMenu": [
+			{
+				"link": "/account/login",
+				"label": "Login",
+				"className": "menu__submenu-item"
+			},
+			{
+				"link": "/account/register",
+				"label": "Register",
+				"className": "menu__submenu-item"
+			}
+		]
+	}
+]
