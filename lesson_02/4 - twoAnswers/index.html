@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Two Answers</title>
+</head>
+<body>
+<script>
+	var successJson = 'success.json',
+		errorJson = 'error.json';
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', successJson, true);
+	xhr.send();
+
+	xhr.addEventListener('readystatechange', function() {
+		if (xhr.readyState !== XMLHttpRequest.DONE) return false;
+
+		if (xhr.status === 200) {
+			var jsonParseAnswer = JSON.parse(xhr.responseText);
+			if (jsonParseAnswer.result === 'success') {
+				console.log('Success');
+			}
+			else if (jsonParseAnswer.result === 'error') {
+				console.log('Error');
+			}
+			else {
+				console.log('Unknown answer')
+			}
+		}
+		else {
+			console.error('Error: ' + xhr.status + ' - ' + xhr.statusText);
+		}
+	});
+</script>
+</body>
+</html>
