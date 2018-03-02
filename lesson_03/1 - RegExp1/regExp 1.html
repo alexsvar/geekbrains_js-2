@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>regExp 1</title>
+	<style>
+		body {}
+		#content {}
+		#changeButton {}
+	</style>
+</head>
+<body>
+<div id="content">
+	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit!'<br>
+	'At fuga hic impedit, minus porro praesentium quod rem.'<br>
+	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, libero.'<br>
+	'Atque dolorem et ipsa laboriosam, laborum nobis praesentium voluptas.'<br>
+	'A culpa, cum dicta ea iste laborum nostrum porro.'<br>
+	'At fuga hic impedit, minus porro praesentium quod rem.'<br>
+	'Animi beatae commodi est fugit iusto magni officia sed.'
+</div>
+<button id="changeButton">Поменять</button>
+
+<script>
+	  var changeButton = document.querySelector('#changeButton');
+	  var content = document.querySelector('#content');
+	  var regExp = /'/g;
+	  var changeValue = '"';
+
+	  changeButton.addEventListener('click', function() {
+	  	content.innerHTML = content.innerHTML.replace(regExp, changeValue);
+	  });
+</script>
+</body>
+</html>
