@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>form</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="form" action="#">
+	<div class="input-fields">
+		<label for="name">Ваше имя</label>
+		<div id="error-name" class="error-message error-message--hidden"></div>
+		<input type="text" id="name" name="name" placeholder="Ваше имя">
+	</div>
+
+	<div class="input-fields">
+		<label for="phone">Ваш телефон</label>
+		<div id="error-phone" class="error-message error-message--hidden"></div>
+		<input type="text" id="phone" name="phone" placeholder="Телефон в формате +7(000)000-00-00">
+	</div>
+
+	<div class="input-fields">
+		<label for="email">Ваш email</label>
+		<div id="error-email" class="error-message error-message--hidden"></div>
+		<input type="text" id="email" name="email" placeholder="Ваш email">
+	</div>
+
+	<div class="input-fields">
+		<label for="message">Сообщение</label>
+		<div id="error-message" class="error-message error-message--hidden"></div>
+		<textarea name="message" id="message" placeholder="Сообщение"></textarea>
+	</div>
+
+	<button id="button" type="button">Отправить</button>
+</form>
+
+<script>
+	var sendButton = document.querySelector('button');
+
+	var fieldValidation = {
+		'name': {
+			'fieldRegExp': /^[a-zа-я]+$/i,
+			'errorMessage': 'Ошибка! Введите ваше настоящее Имя'
+		},
+		'phone': {
+			'fieldRegExp': /^\+7\(\d{3}\)-\d{3}-\d{4}$/,
+			'errorMessage': 'Ошибка! Укажите телефон в формате +7(000)-000-00-00'
+		},
+		'email': {
+			'fieldRegExp': /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i,
+			'errorMessage': 'Ошибка! Укажите email'
+		},
+		'message': {
+			'fieldRegExp': /.+/,
+			'errorMessage': 'Ошибка! Это поле не должно оставаться пустым'
+		}
+	};
+
+
+	sendButton.onclick = function() {
+		for (var key in fieldValidation) {
+			var field = document.getElementById(key);
+			var errorBox = document.getElementById('#error-' + key);
+			var	error = fieldValidation[key].errorMessage;
+			var	isFieldValid = fieldValidation[key].fieldRegExp.test(field.value);
+
+			if (field.value.length === 0) {
+				error = "Это обязательное поле";
+			}
+
+			if (!isFieldValid) {
+				field.classList.add('error-field');
+				field.classList.remove('success-field');
+				errorBox.classList.remove('error-message--hidden');
+				errorBox.innerHTML = error;
+			} else {
+				field.classList.remove('error-field');
+				field.classList.add('success-field');
+				errorBox.classList.add('error-message--hidden');
+				errorBox.innerHTML = '';
+			}
+		}
+	};
+</script>
+</body>
+</html>
