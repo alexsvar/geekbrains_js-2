@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="Window-target" content="_blank">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none">
+    <title>Form Validation</title>
+    <script type="text/javascript" src="validator.js" defer></script>
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="form">
+    <!-- Field Name -->
+    <div class="input-group">
+        <label for="name">Name</label>
+        <div class="error-message">Error! Please, enter your name.</div>
+        <input id="name" name="name" placeholder="Name" type="text">
+    </div>
+    <!-- Field Phone -->
+    <div class="input-group">
+        <label for="phone">Phone</label>
+        <div class="error-message">Error! Please enter your phone number.</div>
+        <input id="phone" name="phone" placeholder="Phone" type="text">
+    </div>
+    <!-- Field E-mail -->
+    <div class="input-group">
+        <label for="email">E-mail</label>
+        <div class="error-message">Error! Please enter your e-mail address.</div>
+        <input id="email" name="email" placeholder="E-mail" type="text">
+    </div>
+    <!-- Field City -->
+    <div class="input-group">
+        <label for="city">City</label>
+        <select id="city" name="city"></select>
+    </div>
+    <!-- Field Message -->
+    <div class="input-group">
+        <label for="message">Message</label>
+        <div class="error-message">Error! Please enter message.</div>
+    </div>
+        <textarea id="message" name="message" placeholder="Message"></textarea>
+    <!-- Button Send -->
+    <button id="sendButton" type="submit">Send</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+    	$.ajax({
+            url: './city.json',
+            dataType: 'json',
+            type: 'GET',
+            success: function(data) {
+            	if (data.result === 'success') {
+            		var cityArray = data.message;
+            		for (var i = 0; i < cityArray.length; i++) {
+            			$('#city').append($('<option value="' + i + '">' + cityArray[i] + '</option>'));
+                    }
+
+                    if ($('select[id="city"] option').length > 0) {
+						$('#city').find(':first').attr('selected', 'selected');
+					}
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
