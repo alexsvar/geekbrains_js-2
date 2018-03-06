@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="Window-target" content="_blank">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none">
+    <title>Task 1</title>
+</head>
+<body>
+<div id="content">
+    <p id="text">
+        '/abc/ Последовательность символов'<br><br>
+        '/[abc]/ Любой символ из списка'<br><br>
+        '/[^abc]/ Любой символ, кроме символов из списка'<br><br>
+        '/[0-9]/ Любой символ из промежутка'<br><br>
+        '/x+/ Одно или более вхождений шаблона x'<br><br>
+        '/x+?/ Одно или более вхождений, нежадное'<br><br>
+        '/x*/ Ноль или более вхождений'<br><br>
+        '/x?/ Ноль или одно вхождение'<br><br>
+        '/x{2,4}/ От двух до четырёх вхождений'<br><br>
+        '/(abc)/ Группа'<br><br>
+        '/a|b|c/ Любой из нескольких шаблонов'<br><br>
+        '/\d/ Любая цифра'<br><br>
+        '/\w/ Любой алфавитно-цифровой символ («буква»)'<br><br>
+        '/\s/ Любой пробельный символ'<br><br>
+        '/./ Любой символ, кроме переводов строки'<br><br>
+        '/\b/ Граница слова'<br><br>
+        '/^/ Начало строки'<br><br>
+        '/$/ Конец строки'
+    </p>
+</div>
+<button id="changeButton" type="button">Change</button>
+
+<script>
+    var text = document.querySelector('#text'),
+        changeButton = document.querySelector('#changeButton'),
+        regExp = /'/g;
+
+    changeButton.addEventListener('click', function() {
+    	text.innerHTML = text.innerHTML.replace(regExp, '"');
+    });
+</script>
+</body>
+</html>
