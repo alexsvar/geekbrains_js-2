@@ -1,0 +1,78 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Arial', sans-serif;
+}
+
+form {
+	width: 300px;
+}
+
+.input-group {
+	margin-bottom: 20px;
+}
+
+.error-message {
+	display: none; color: red;
+}
+
+input {
+	width: 300px;
+	height: 30px;
+	outline: none;
+}
+
+textarea {
+	width: 300px;
+	height: 70px;
+	outline: none;
+}
+
+input[placeholder] {
+	padding: 0 10px 0 10px;
+	font-size: 15px;
+}
+
+textarea[placeholder] {
+	padding: 7px 10px 0 10px;
+	font-size: 15px;
+}
+
+button {
+	outline: none;
+	user-select: none;
+}
+
+.find-city {
+	display: none;
+	position: absolute;
+	width: 300px;
+	padding: 5px 0;
+	background-color: #f8fafb;
+	box-shadow: 0 3px 8px 0 rgba( 0, 0, 0, 0.2 );
+}
+
+.find-city__list {
+	margin: 0;
+	padding: 0;
+}
+
+.find-city__item {
+	list-style: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.find-city__item:hover {
+	background-color: #e5e5e5;
+}
+
+.success {
+	border: 2px solid green;
+}
+
+.error {
+	border: 2px solid red;
+}

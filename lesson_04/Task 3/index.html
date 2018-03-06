@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="Window-target" content="_blank">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none">
+    <title>Form Validation with city field</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="validator.js" defer></script>
+    <script src="lib/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<form id="form">
+    <!-- Field Name -->
+    <div class="input-group">
+        <label for="name">Name</label>
+        <div class="error-message">Error! Please, enter your name.</div>
+        <input id="name" name="name" placeholder="Name" type="text">
+    </div>
+    <!-- Field Phone -->
+    <div class="input-group">
+        <label for="phone">Phone</label>
+        <div class="error-message">Error! Please enter your phone number.</div>
+        <input id="phone" name="phone" placeholder="Phone" type="text">
+    </div>
+    <!-- Field E-mail -->
+    <div class="input-group">
+        <label for="email">E-mail</label>
+        <div class="error-message">Error! Please enter your e-mail address.</div>
+        <input id="email" name="email" placeholder="E-mail" type="text">
+    </div>
+    <!-- Field City -->
+    <div class="input-group">
+        <label for="city">City</label>
+        <div class="error-message">Error! Please enter your city.</div>
+        <input id="city" name="city" placeholder="City" type="text">
+        <div id="find-city" class="find-city">
+            <ul class="find-city__list"></ul>
+        </div>
+    </div>
+    <!-- Field Message -->
+    <div class="input-group">
+        <label for="message">Message</label>
+        <div class="error-message">Error! Please enter message.</div>
+        <textarea id="message" name="message" placeholder="Message"></textarea>
+    </div>
+    <!-- Button Send -->
+    <button id="sendButton" type="submit">Send</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+		var findCityBlock = $('#find-city'),
+			cityArray = [];
+
+		$.ajax({
+			url: './city.json',
+			dataType: 'json',
+			type: 'get',
+			success: function(data) {
+				if (data.result === 'success') {
+					cityArray = data.message;
+				}
+			}
+		});
+
+		$('#city').on('keyup', function() {
+			var cityInputValue = $(this).val();
+
+			if (cityInputValue.length < 3) {
+				findCityBlock.css('display', 'none');
+				return;
+			}
+
+			var findCityArray = cityArray.filter(function(item) {
+				var regExp = new RegExp(cityInputValue, 'ig');
+				return regExp.test(item);
+			} );
+
+			if (findCityArray.length > 0) {
+				findCityBlock.css('display', 'block');
+				findCityBlock.find('.find-city__list').html('');
+
+				for (var i = 0; i < findCityArray.length; i++) {
+					findCityBlock.find('.find-city__list').append($('<li class="find-city__item">' + findCityArray[i] + '</li>'));
+				}
+
+				findCityBlock.find('li.find-city__item').on('click', function() {
+					$('#city').val($(this).text());
+					findCityBlock.css('display', 'none');
+				} );
+			} else {
+				findCityBlock.css('display', 'none');
+			}
+		} );
+    });
+</script>
+</body>
+</html>
