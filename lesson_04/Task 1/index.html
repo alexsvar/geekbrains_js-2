@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="Window-target" content="_blank">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none">
+    <title>jQuery Tabs</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="lib/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div class="tabs">
+
+    <ul class="tabs__items">
+        <li data-tab-id="tab-1" class="tabs__item tabs__item--active">Tab 1</li>
+        <li data-tab-id="tab-2" class="tabs__item">Tab 2</li>
+        <li data-tab-id="tab-3" class="tabs__item">Tab 3</li>
+        <li data-tab-id="tab-4" class="tabs__item">Tab 4</li>
+    </ul>
+    <!-- Tab 1 -->
+    <div id="tab-1" class="tabs__item-content tabs__item-content--active">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, amet aperiam at consectetur distinctio dolores eligendi esse est et excepturi facilis harum hic illo in ipsum iste, itaque laborum, maiores nisi non numquam pariatur quis recusandae repudiandae sequi unde velit. Ab consectetur illo illum modi nam odit perferendis voluptate? Assumenda doloribus eaque, eius id inventore nam nemo nostrum perferendis rem sapiente, sequi unde ut, voluptatibus! Cupiditate minus necessitatibus provident reiciendis.
+        </p>
+    </div>
+    <!-- Tab 2 -->
+    <div id="tab-2" class="tabs__item-content">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eveniet id illum ipsa minima quo voluptatum. Ab accusamus adipisci aut beatae blanditiis culpa deleniti earum esse ex fugit harum ipsum labore mollitia necessitatibus praesentium, quos recusandae, sequi sint suscipit tempora tenetur veritatis voluptatum! Alias cumque dicta dolore, ea fugit impedit, labore laborum magni mollitia nihil nostrum nulla odit reiciendis rem reprehenderit tenetur, velit. Amet architecto doloremque enim molestiae quidem vitae.
+        </p>
+    </div>
+    <!-- Tab 3 -->
+    <div id="tab-3" class="tabs__item-content">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad commodi corporis dolor et, eum ex excepturi expedita facilis hic id in labore magnam magni, molestiae nesciunt nisi officiis possimus quidem ratione repudiandae sequi tempore veniam voluptas voluptatem voluptatibus. A cum, enim. Aliquam consectetur dolor dolores earum eius et eveniet harum natus nemo nihil nobis, odit porro praesentium ratione reiciendis sit temporibus velit vero voluptate voluptatum. Dignissimos fugiat libero officia sed!
+        </p>
+    </div>
+    <!-- Tab 4 -->
+    <div id="tab-4" class="tabs__item-content">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aspernatur assumenda at consectetur consequatur corporis culpa cum et, ex expedita inventore ipsa laudantium magnam magni maxime natus neque nisi nulla praesentium quod repellat sint sunt vel veniam vero. Accusamus ad delectus excepturi temporibus veritatis? Aspernatur dicta dolores neque numquam quia ut? Animi assumenda autem beatae id iusto laudantium libero nam, neque provident quasi quia reprehenderit repudiandae, sequi vitae voluptas, voluptates?
+        </p>
+    </div>
+
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('li.tabs__item').on('click', function() {
+			$('li.tabs__item').removeClass('tabs__item--active');
+			$(this).addClass('tabs__item--active');
+
+			var idTab = $(this).attr('data-tab-id');
+			$('div.tabs__item-content').removeClass('tabs__item-content--active');
+			$('#' + idTab).addClass('tabs__item-content--active');
+		});
+	});
+</script>
+</body>
+</html>
