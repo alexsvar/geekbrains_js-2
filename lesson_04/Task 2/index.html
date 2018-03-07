@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,32 +42,33 @@
     <div class="input-group">
         <label for="message">Message</label>
         <div class="error-message">Error! Please enter message.</div>
-    </div>
         <textarea id="message" name="message" placeholder="Message"></textarea>
+    </div>
     <!-- Button Send -->
     <button id="sendButton" type="submit">Send</button>
 </form>
 
 <script>
-    $(document).ready(function() {
-    	$.ajax({
-            url: './city.json',
-            dataType: 'json',
-            type: 'GET',
-            success: function(data) {
-            	if (data.result === 'success') {
-            		var cityArray = data.message;
-            		for (var i = 0; i < cityArray.length; i++) {
-            			$('#city').append($('<option value="' + i + '">' + cityArray[i] + '</option>'));
-                    }
+	$(document).ready(function() {
+		$.ajax({
+			url: './city.json',
+			dataType: 'json',
+			type: 'GET',
+			success: function(data) {
+				if (data.result === 'success') {
+					var cityArray = data.message;
+					for (var i = 0; i < cityArray.length; i++) {
+						var option = $('<option/>').val(i).append(cityArray[i]);
+						$('#city').append(option);
+					}
 
-                    if ($('select[id="city"] option').length > 0) {
+					if ($('select[id="city"] option').length > 0) {
 						$('#city').find(':first').attr('selected', 'selected');
 					}
-                }
-            }
-        });
-    });
+				}
+			}
+		});
+	});
 </script>
 </body>
 </html>
