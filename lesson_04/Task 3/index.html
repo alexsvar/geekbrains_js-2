@@ -52,7 +52,7 @@
 </form>
 
 <script>
-    $(document).ready(function() {
+	$(document).ready(function() {
 		var findCityBlock = $('#find-city'),
 			cityArray = [];
 
@@ -85,7 +85,9 @@
 				findCityBlock.find('.find-city__list').html('');
 
 				for (var i = 0; i < findCityArray.length; i++) {
-					findCityBlock.find('.find-city__list').append($('<li class="find-city__item">' + findCityArray[i] + '</li>'));
+					var li = $('<li/>').append(findCityArray[i]);
+					findCityBlock.find('.find-city__list').append(
+						$(li).addClass('find-city__item'));
 				}
 
 				findCityBlock.find('li.find-city__item').on('click', function() {
@@ -96,7 +98,7 @@
 				findCityBlock.css('display', 'none');
 			}
 		} );
-    });
+	});
 </script>
 </body>
 </html>
