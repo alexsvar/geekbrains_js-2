@@ -1,0 +1,35 @@
+{
+  "goods": [
+    {
+      "id": 1,
+      "name": "iPhone SE",
+      "image": "img/iPhone.jpg",
+      "price": 750
+    },
+    {
+      "id": 2,
+      "name": "iPad Pro",
+      "image": "img/iPad.jpg",
+      "price": 1000
+    },
+    {
+      "id": 3,
+      "name": "MacBook Air",
+      "image": "img/macBook.jpg",
+      "price": 1250
+    }
+  ],
+  "cart": [],
+  "reviews": [
+    {
+      "id": 1,
+      "name": "Jason",
+      "text": "Not bad service!!!"
+    },
+    {
+      "name": "Alex",
+      "text": "Hi! Very good online store!!!",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+.tabs {
+	
+	.tabs__caption {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		position: relative;
+		list-style-type: none;
+		
+		& li {
+		
+			&:hover {
+				color: red;
+				cursor: pointer;
+			}
+		}
+		
+		& li.active {
+			color: red;
+		}
+	}
+	
+	
+	.tabs__content.active {
+		display: block;
+	}
+	
+	.tabs__content {
+		display: none;
+	}
+}

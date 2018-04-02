@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cart And Reviews</title>
+	<link rel="stylesheet" href="style/style.css">
+	<script src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="script/tabs.js" defer></script>
+	<script type="text/javascript" src="script/goods.js" defer></script>
+	<script type="text/javascript" src="script/cart.js" defer></script>
+	<script type="text/javascript" src="script/reviews.js" defer></script>
+</head>
+<body>
+<div class="container">
+<section class="tabs">
+	
+	<ul class="tabs__caption">
+		<li class="active">Goods</li>
+		<li>Cart</li>
+		<li>Reviews</li>
+	</ul>
+	
+	<!-- Goods -->
+	<section id="goods" class="goods tabs__content active">
+		<h2 class="goods__caption">Goods</h2>
+	</section>
+	
+	<!-- Cart -->
+	<section id="cart" class="cart tabs__content">
+		<h2 class="cart__caption">Cart</h2>
+		<h3 class="cart__amount">Amount: $<span id="amount"></span></h3>
+	</section>
+	
+	<!-- Reviews -->
+	<section id="reviews" class="reviews tabs__content">
+		<h2 class="reviews__caption">Reviews</h2>
+		<div id="review" class="reviews__review">
+			<input id="name" class="review__name" name="name" placeholder="Enter your name" required>
+			<textarea id="message" class="review__message" placeholder="Leave your comment here" required></textarea>
+			<a href="#" type="submit" id="send" class="review__send-button">Send</a>
+		</div>
+		
+	</section>
+	
+</section>
+</div>
+</body>
+</html>

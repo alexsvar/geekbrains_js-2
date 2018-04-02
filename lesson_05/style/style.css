@@ -1,0 +1,156 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-image: url("../img/background.jpg");
+  font-family: "Arial", sans-serif; }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto; }
+
+a {
+  text-decoration: none; }
+
+.goods,
+.cart,
+.reviews {
+  min-height: 185px; }
+
+.tabs .tabs__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  list-style-type: none; }
+  .tabs .tabs__caption li:hover {
+    color: red;
+    cursor: pointer; }
+  .tabs .tabs__caption li.active {
+    color: red; }
+.tabs .tabs__content.active {
+  display: block; }
+.tabs .tabs__content {
+  display: none; }
+
+.goods .goods__caption {
+  text-align: center; }
+.goods .goods__goodlist {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .goods .goods__goodlist .goodlist__good {
+    list-style-type: none;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid lightgrey;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px; }
+    .goods .goods__goodlist .goodlist__good .goodlist__image {
+      display: block; }
+    .goods .goods__goodlist .goodlist__good .goodlist__price {
+      display: block;
+      margin: 10px auto; }
+    .goods .goods__goodlist .goodlist__good .goodlist__quantity {
+      display: block;
+      height: 25px;
+      margin: 0 auto;
+      width: 40px;
+      font-size: 15px;
+      outline: none; }
+    .goods .goods__goodlist .goodlist__good .goodlist__buy-button {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      color: red;
+      border: 1px solid red;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      height: 20px;
+      width: 50px;
+      margin: 15px auto; }
+
+.cart .cart__caption {
+  text-align: center; }
+.cart .cart__amount {
+  text-align: center; }
+.cart .cart__list {
+  list-style-image: url("../img/list-style.png");
+  padding: 10px 10px 10px 40px; }
+  .cart .cart__list .cartlist__good {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .cart .cart__list .cartlist__good .cartlist__delete-button {
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      color: red;
+      border: 1px solid red;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      height: 20px;
+      width: 70px;
+      margin-left: 10px; }
+
+.reviews .reviews__caption {
+  text-align: center; }
+.reviews .reviews__review {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .reviews .reviews__review .review__name,
+  .reviews .reviews__review .review__message {
+    width: 500px;
+    outline: none;
+    border: 1px solid gray;
+    font-family: "Arial", sans-serif;
+    font-size: 20px; }
+  .reviews .reviews__review .review__name {
+    height: 40px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+  .reviews .reviews__review .review__message {
+    margin-top: -1px;
+    height: 100px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  .reviews .reviews__review .review__send-button {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: red;
+    border: 1px solid red;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height: 20px;
+    width: 70px;
+    margin-top: 10px; }
+.reviews .reviews__comment-list {
+  list-style-image: url("../img/list-style.png");
+  padding: 10px 10px 10px 40px; }
+  .reviews .reviews__comment-list .comment-list__comment {
+    margin-bottom: 20px; }
+  .reviews .reviews__comment-list .comment__user-name {
+    display: block; }
+  .reviews .reviews__comment-list .comment__user-text {
+    text-wrap: normal; }
+  .reviews .reviews__comment-list .comment__line {
+    width: 80%; }
+
+/*# sourceMappingURL=style.css.map */

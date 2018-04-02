@@ -1,0 +1,29 @@
+(function($) {
+	$(function() {
+		$('.tabs__caption').each(function(i) {
+			var storage = localStorage.getItem('tab' + i);
+			
+			if (storage) {
+				$(this)
+					.find('li').removeClass('active').eq(storage).addClass('active')
+					.closest('.tabs').find('.tabs__content')
+					.removeClass('active')
+					.eq(storage).addClass('active');
+			}
+		});
+		
+		$('.tabs__caption').on('click', 'li:not(.active)', function() {
+			$(this)
+				.addClass('active')
+				.siblings().removeClass('active')
+				.closest('.tabs').find('.tabs__content')
+				.removeClass('active')
+				.eq($(this).index()).addClass('active');
+			
+			var ulIndex = $('.tabs__caption').index($(this).parents('.tabs__caption'));
+			
+			localStorage.removeItem('tab' + ulIndex);
+			localStorage.setItem('tab' + ulIndex, $(this).index());
+		});
+	});
+})(jQuery);
