@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Slider</title>
+	<!-- jQuery -->
+	<script src="lib/jquery.min.js"></script>
+	<!-- slick slider -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+	<!-- page's style -->
+	<style>
+		.slider {
+			margin: 0 auto;
+			max-width: 800px;
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+		}
+		.single-item {
+			width: 800px;
+		}
+		.slick-prev,
+		.slick-next {
+			position: absolute;
+			top: 50%;
+			z-index: 100;
+			font-size: 40px;
+			background: transparent;
+			border: none;
+			color: lightGray;
+			opacity: 0.5;
+			outline: none;
+		}
+		
+		.slick-prev:hover,
+		.slick-next:hover {
+			opacity: 1;
+			color: black;
+			cursor: pointer;
+		}
+		
+		.slick-next {
+		left: 93.7%;
+		}
+		
+	</style>
+</head>
+<body>
+
+<section class="slider">
+	<div class="single-item">
+		<img src="img/iPhone.jpg" class="slick-items" alt="goods">
+		<img src="img/iPad.jpg" class="slick-items" alt="goods">
+		<img src="img/macBook.jpg" class="slick-items" alt="goods">
+	</div>
+</section>
+
+<script>
+	$(document).ready(function(){
+		$('.single-item').slick({
+			autoplay: true
+		});
+		
+		$('.slick-next').html('&#9002;');
+		$('.slick-prev').html('&#9001;');
+	});
+</script>
+</body>
+</html>
