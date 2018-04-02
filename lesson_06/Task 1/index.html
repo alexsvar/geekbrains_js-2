@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 06 HomeWork</title>
+	<!-- page's style -->
+	<link rel="stylesheet" href="style/style.css">
+	<!-- jQuery -->
+	<script src="lib/jquery.min.js"></script>
+	<!-- jQuery-UI -->
+	<script src="lib/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="lib/jquery-ui.min.css">
+	<!-- page's scripts -->
+	<script type="text/javascript" src="script/autocomplete.js" defer></script>
+	<script type="text/javascript" src="script/form.js" defer></script>
+</head>
+<body>
+
+<form class="form" id="form">
+	<div class="form__input-group">
+		<label for="name">Name</label>
+		<input class="form__field" id="name" name="name" placeholder="Name">
+	</div>
+	<div class="form__input-group">
+		<label for="birthday">Birthday</label>
+		<input class="form__field" id="birthday" name="birthday" placeholder="Birthday">
+	</div>
+	<div class="form__input-group">
+		<label for="phone">Phone</label>
+		<input class="form__field" id="phone" name="phone" placeholder="Phone">
+	</div>
+	<div class="form__input-group">
+		<label for="email">E-mail</label>
+		<input class="form__field" id="email" name="email" placeholder="E-mail">
+	</div>
+	<div class="form__input-group">
+		<label for="city">City</label>
+		<input class="form__field" id="city" name="city" placeholder="City" autocomplete="off">
+		<div id="find-city" class="find-city">
+			<ul class="find-city__list"></ul>
+		</div>
+	</div>
+	<div class="form__input-group">
+		<label for="message">Message</label>
+		<textarea class="form__field" id="message" name="message" placeholder="Message"></textarea>
+	</div>
+	<div id="dialog"></div>
+	<button id="sendButton">Send</button>
+</form>
+
+</body>
+</html>

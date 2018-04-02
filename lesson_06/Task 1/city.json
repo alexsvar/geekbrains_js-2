@@ -1,0 +1,28 @@
+{
+    "result": "success",
+    "message": [
+        "Choose your city",
+        "Arkhangelsk",
+        "Belgorod",
+        "Irkutsk",
+        "Kaliningrad",
+        "Krasnodar",
+        "Moscow",
+        "Nizhny Novgorod",
+        "Novosibirsk",
+        "Omsk",
+        "Penza",
+        "Rostov-on-Don",
+        "Saint Petersburg",
+        "Sarov",
+        "Sochi",
+        "Tomsk",
+        "Tula",
+        "Veliky Novgorod",
+        "Vladivostok",
+        "Yakutsk",
+        "Yaroslavl",
+        "Yekaterinburg",
+        "Yoshkar-Ola"
+    ]
+}

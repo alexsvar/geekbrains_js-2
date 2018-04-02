@@ -1,0 +1,90 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+/* FORM */
+.form {
+	padding: 10px;
+	width: 320px;
+	border: 2px solid lightGray;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form__input-group {
+	margin-bottom: 15px;
+}
+
+label {
+	padding-left: 10px;
+}
+
+input,
+textarea {
+	display: block;
+	width: 300px;
+	font-family: "Arial",sans-serif;
+	font-size: 15px;
+	border: 2px solid lightgray;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	outline: none;
+}
+
+input[placeholder],
+textarea[placeholder] {
+	padding-left: 10px;
+}
+
+input {
+	height: 30px;
+}
+
+textarea {
+	height: 70px;
+}
+
+button {
+	outline: none;
+}
+
+.error {
+	border: 2px solid red;
+}
+
+.find-city {
+	display: none;
+	position: absolute;
+	width: 300px;
+	padding: 5px 0;
+	background-color: #f8fafb;
+	box-shadow: 0 3px 8px 0 rgba( 0, 0, 0, 0.2 );
+}
+
+.find-city__list {
+	margin: 0;
+	padding: 0;
+}
+
+.find-city__item {
+	list-style: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.find-city__item:hover {
+	background-color: #e5e5e5;
+}
